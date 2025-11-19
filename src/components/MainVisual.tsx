@@ -7,15 +7,14 @@ export default function MainVisual() {
         backgroundImage:
           "linear-gradient(135deg, #B2F7EF, #7DE2D1, #6EC6CA, #A0EEC0)",
         backgroundSize: "600% 600%",
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 60px)",
         boxSizing: "border-box",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         overflowX: "hidden",
-        animation: "gradient 4s ease-in-out infinite",
-      }}
-    >
+        animation: "gradient 4s ease-in-out infinite"
+      }}>
       <style>
         {`
         @keyframes gradient {
@@ -43,8 +42,7 @@ export default function MainVisual() {
           <Text
             size="20px"
             fw={500}
-            style={{ marginBottom: "20px", color: "white" }}
-          >
+            style={{ marginBottom: "20px", color: "white" }}>
             @ 台大語言學研究所
           </Text>
         </Center>

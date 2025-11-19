@@ -1,4 +1,4 @@
-import { UnstyledButton, Anchor } from "@mantine/core";
+import { UnstyledButton } from "@mantine/core";
 
 interface NavLinkProps {
   href: string;
@@ -7,10 +7,28 @@ interface NavLinkProps {
 
 export default function NavLink({ href, label }: NavLinkProps) {
   return (
-    <UnstyledButton>
-      <Anchor fw={700} href={href} c="#659AD2">
-        {label}
-      </Anchor>
+    <UnstyledButton
+      component="a"
+      href={href}
+      style={(theme) => ({
+        padding: "0px 4px",
+        borderRadius: theme.radius.lg,
+        fontWeight: 700,
+        fontSize: theme.fontSizes.md,
+        color: "#357ac4ff",
+        display: "inline-flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textDecoration: "none",
+        transition: "background-color 120ms ease, transform 80ms ease",
+        cursor: "pointer",
+        // simple hover effect
+        "&:hover": {
+          backgroundColor: theme.colors.gray[0],
+          transform: "translateY(-1px)"
+        }
+      })}>
+      {label}
     </UnstyledButton>
   );
 }
