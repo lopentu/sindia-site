@@ -7,7 +7,7 @@ export default function MainVisual() {
         backgroundImage:
           "linear-gradient(135deg, #B2F7EF, #7DE2D1, #6EC6CA, #A0EEC0)",
         backgroundSize: "600% 600%",
-        minHeight: "calc(100vh - 60px)",
+        minHeight: "100vh",
         boxSizing: "border-box",
         display: "flex",
         justifyContent: "center",

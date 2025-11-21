@@ -28,7 +28,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
       <MantineProvider>
         <AppShell
-          header={{ height: 60 }}
+          header={{ height: 60, offset: false }}
           aside={{
             width: 300,
             breakpoint: "sm",
