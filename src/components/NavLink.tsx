@@ -13,9 +13,9 @@ export default function NavLink({ href, label }: NavLinkProps) {
       style={(theme) => ({
         padding: "0px 4px",
         borderRadius: theme.radius.lg,
-        fontWeight: 700,
+        fontWeight: 500,
         fontSize: theme.fontSizes.md,
-        color: "#357ac4ff",
+        color: "#000000",
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",

@@ -7,7 +7,7 @@ import {
   MantineProvider,
   ColorSchemeScript
 } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 import type { AppProps } from "next/app";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -22,6 +22,9 @@ const menuItems = [
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [opened, { toggle }] = useDisclosure();
+  const [scroll] = useWindowScroll();
+  const isScrolled = scroll.y > 0;
+
   return (
     <>
       <ColorSchemeScript />
@@ -36,10 +39,16 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           }}
           styles={{
             header: {
-              backdropFilter: "blur(10px)",
-              WebkitBackdropFilter: "blur(10px)",
-              backgroundColor: "rgba(255, 255, 255, 0.7)",
-              borderBottom: "1px solid rgba(148, 163, 184, 0.4)"
+              backdropFilter: isScrolled ? "blur(10px)" : "none",
+              WebkitBackdropFilter: isScrolled ? "blur(10px)" : "none",
+              backgroundColor: isScrolled
+                ? "rgba(255, 255, 255, 0.5)"
+                : "transparent",
+              borderBottom: isScrolled
+                ? "1px solid rgba(148, 163, 184, 0.4)"
+                : "none",
+              transition: "all 0.3s ease",
+              zIndex: 1001
             },
             aside: {
               backdropFilter: "blur(10px)",
@@ -53,6 +62,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
           <AppShell.Aside
             py="md"
+            pt={80}
             px={4}
             style={{
               backgroundColor: "rgba(255, 255, 255, 0.5)",
@@ -61,7 +71,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <Stack align="center" justify="space-between" gap="xl">
               {menuItems.map((item, index) => (
                 <Anchor key={index} href={item.href} onClick={() => toggle()}>
-                  <Text size="lg" fw={700} c="#659AD2">
+                  <Text size="lg" fw={500} c="#000000">
                     {item.label}
                   </Text>
                 </Anchor>
