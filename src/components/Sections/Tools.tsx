@@ -18,6 +18,13 @@ const toolsData = [
     buttonText: "Access",
     buttonLink: "http://140.112.80.82:8080/compounds-analysis",
   },
+  {
+    title: "HanziAnalysisKit",
+    imageUrl: "",
+    altText: "",
+    buttonText: "Access",
+    buttonLink: "https://lopentu.github.io/HanziAnalysisKit/index.html"
+  }
 ];
 
 export default function Tools() {

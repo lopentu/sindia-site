@@ -30,8 +30,9 @@ export default function ContentCard({
         padding="lg"
         radius="md"
         withBorder
-        className="hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+        className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
         onClick={() => setOpened(true)}
+        h="100%"
       >
         <Card.Section>
           <Image
@@ -42,7 +43,7 @@ export default function ContentCard({
           />
         </Card.Section>
 
-        <Text fw={500} size="lg" mt="md">
+        <Text fw={700} size="lg" mt="md">
           {title}
         </Text>
       </Card>
@@ -53,6 +54,7 @@ export default function ContentCard({
         title="Detail"
         centered
         size="xl"
+        radius="md"
         transitionProps={{
           transition: "pop",
           duration: 400,
@@ -64,23 +66,30 @@ export default function ContentCard({
             {title}
           </Text>
 
-          <Image
-            src={fullImagePath}
-            alt={altText || title}
-            height={300}
-            w={"100%"}
-            radius="md"
-          />
+          {!fullPdfPath && (
+            <Image
+              src={fullImagePath}
+              alt={altText || title}
+              height={300}
+              w={"100%"}
+              radius="md"
+            />
+          )}
 
           {fullPdfPath && (
-            <Box my="md" w="100%" h={500}>
-              <iframe
-                src={`${fullPdfPath}#toolbar=0`}
+            <Box my="md" w="100%" h={300}>
+              <object
+                data={`${fullPdfPath}#toolbar=0`}
+                type="application/pdf"
                 width="100%"
                 height="100%"
                 style={{ border: "1px solid #eee", borderRadius: "8px" }}
-                title={`PDF for ${title}`}
-              />
+              >
+                <p>
+                  Your browser does not support PDFs.
+                  <a href={fullPdfPath}>Download the PDF</a>.
+                </p>
+              </object>
             </Box>
           )}
 
@@ -105,7 +114,7 @@ export default function ContentCard({
                   rel="noopener noreferrer"
                   variant="outline"
                 >
-                  More
+                  Access PDF
                 </Button>
               )}
             </Group>
