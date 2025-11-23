@@ -13,6 +13,9 @@ export default function Header({
   const [scroll] = useWindowScroll();
   const isScrolled = scroll.y > 0;
 
+  const navColor = isScrolled ? "#5e5e5e" : "white";
+  const burgerColor = opened || isScrolled ? "#5e5e5e" : "white";
+
   const navLinks = [
     { href: "#about", key: "About" },
     { href: "#tools", key: "Tools" },
@@ -26,11 +29,11 @@ export default function Header({
       justify="space-between"
       align="center"
       mx="md"
-      mih={60}>
+      mih={56}>
       {/* Logo */}
       <Flex align="center" gap="md">
         <Text
-          size="30px"
+          size="25px"
           fw={800}
           variant="gradient"
           gradient={{ from: "green", to: "blue", deg: 270 }}
@@ -46,7 +49,12 @@ export default function Header({
       {/* NavLink (menu items) */}
       <Flex gap="sm" visibleFrom="sm" align="center">
         {navLinks.map((item) => (
-          <NavLink key={item.key} href={item.href} label={item.key} />
+          <NavLink
+            key={item.key}
+            href={item.href}
+            label={item.key}
+            color={navColor}
+          />
         ))}
       </Flex>
 
@@ -57,6 +65,7 @@ export default function Header({
         hiddenFrom="sm"
         size="sm"
         mr="sm"
+        color={burgerColor}
       />
     </Flex>
   );

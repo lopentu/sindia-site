@@ -31,7 +31,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
       <MantineProvider>
         <AppShell
-          header={{ height: 60, offset: false }}
+          header={{ height: 56, offset: false }}
           aside={{
             width: 300,
             breakpoint: "sm",
@@ -47,13 +47,14 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               borderBottom: isScrolled
                 ? "1px solid rgba(148, 163, 184, 0.4)"
                 : "none",
-              transition: "all 0.3s ease",
+              transition: "all 0.5s ease",
               zIndex: 1001
             },
             aside: {
               backdropFilter: "blur(10px)",
               WebkitBackdropFilter: "blur(10px)",
-              backgroundColor: "rgba(255, 255, 255, 0.5)"
+              backgroundColor: "rgba(235, 235, 235, 0.5)",
+              color: isScrolled ? "#5e5e5e" : "#FFFFFF"
             }
           }}>
           <AppShell.Header>
@@ -65,13 +66,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             pt={80}
             px={4}
             style={{
-              backgroundColor: "rgba(255, 255, 255, 0.5)",
+              backgroundColor: "rgba(255, 255, 255, 0.7)",
               backdropFilter: "blur(10px)"
             }}>
             <Stack align="center" justify="space-between" gap="xl">
               {menuItems.map((item, index) => (
                 <Anchor key={index} href={item.href} onClick={() => toggle()}>
-                  <Text size="lg" fw={500} c="#000000">
+                  <Text size="lg" fw={500} c="#5e5e5e">
                     {item.label}
                   </Text>
                 </Anchor>

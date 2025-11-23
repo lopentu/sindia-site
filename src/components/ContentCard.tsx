@@ -53,6 +53,11 @@ export default function ContentCard({
         title="Detail"
         centered
         size="xl"
+        transitionProps={{
+          transition: "pop",
+          duration: 400,
+          timingFunction: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+        }}
       >
         <Stack align="center">
           <Text size="xl" fw={700} ta="center" mb="md">
