@@ -1,11 +1,20 @@
 import { useState } from "react";
-import { Card, Image, Text, Modal, Stack, Button, Group, Box } from "@mantine/core";
+import {
+  Card,
+  Image,
+  Text,
+  Modal,
+  Stack,
+  Button,
+  Group,
+  Box
+} from "@mantine/core";
 
 interface ContentCardProps {
   title: string;
   imageUrl: string;
   altText?: string;
-  buttonText?: string; 
+  buttonText?: string;
   buttonLink?: string;
   pdfUrl?: string;
 }
@@ -16,7 +25,7 @@ export default function ContentCard({
   altText = "",
   buttonText,
   buttonLink,
-  pdfUrl,
+  pdfUrl
 }: ContentCardProps) {
   const [opened, setOpened] = useState(false);
 
@@ -32,8 +41,7 @@ export default function ContentCard({
         withBorder
         className="hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
         onClick={() => setOpened(true)}
-        h="100%"
-      >
+        h="100%">
         <Card.Section>
           <Image
             src={fullImagePath}
@@ -57,10 +65,9 @@ export default function ContentCard({
         radius="md"
         transitionProps={{
           transition: "pop",
-          duration: 400,
-          timingFunction: "cubic-bezier(0.175, 0.885, 0.32, 1.275)",
-        }}
-      >
+          duration: 300,
+          timingFunction: "cubic-bezier(0.175, 0.885, 0.32, 1.275)"
+        }}>
         <Stack align="center">
           <Text size="xl" fw={700} ta="center" mb="md">
             {title}
@@ -83,8 +90,7 @@ export default function ContentCard({
                 type="application/pdf"
                 width="100%"
                 height="100%"
-                style={{ border: "1px solid #eee", borderRadius: "8px" }}
-              >
+                style={{ border: "1px solid #eee", borderRadius: "8px" }}>
                 <p>
                   Your browser does not support PDFs.
                   <a href={fullPdfPath}>Download the PDF</a>.
@@ -100,8 +106,7 @@ export default function ContentCard({
                   component="a"
                   href={buttonLink}
                   target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   {buttonText}
                 </Button>
               )}
@@ -112,8 +117,7 @@ export default function ContentCard({
                   href={fullPdfPath}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="outline"
-                >
+                  variant="outline">
                   Access PDF
                 </Button>
               )}

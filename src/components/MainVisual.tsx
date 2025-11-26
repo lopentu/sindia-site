@@ -33,7 +33,13 @@ export default function MainVisual() {
 
       <Container>
         <Center>
-          <Text size="70px" c={"white"} m={"lg"} fw={500}>
+          <Text
+            size="xl"
+            style={{ fontSize: "clamp(40px, 10vw, 70px)" }}
+            c={"white"}
+            m={"lg"}
+            fw={500}
+            ta="center">
             Sindia Project
           </Text>
         </Center>
@@ -42,8 +48,9 @@ export default function MainVisual() {
           <Text
             size="20px"
             fw={500}
+            ta="center"
             style={{ marginBottom: "20px", color: "white" }}>
-            @ 台大語言學研究所
+            @ National Taiwan University, Graduate Institute of Linguistics
           </Text>
         </Center>
 

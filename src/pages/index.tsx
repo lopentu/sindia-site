@@ -2,7 +2,7 @@ import About from "@/components/About";
 import MainVisual from "@/components/MainVisual";
 import Papers from "@/components/Sections/Papers";
 import Tools from "@/components/Sections/Tools";
-import Worfkshop from "@/components/Sections/Worfkshop";
+import Workshop from "@/components/Sections/Workshop";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         <Papers />
       </div>
       <div id="workshop">
-        <Worfkshop />
+        <Workshop />
       </div>
     </>
   );

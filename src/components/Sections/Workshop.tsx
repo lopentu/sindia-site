@@ -8,12 +8,12 @@ const workshopData = [
     title: "LangCog 2025",
     imageUrl: "workshop.png",
     altText: "LangCog_2025",
-    buttonText: "Woerkshop Website",
+    buttonText: "Workshop Website",
     buttonLink: "https://lopentu.github.io/langcog2025/",
   },
 ];
 
-export default function Worfkshop() {
+export default function Workshop() {
   return (
     <Container mb={"xl"}>
       <SindiaTitle title="Workshop" />
