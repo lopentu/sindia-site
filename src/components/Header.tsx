@@ -5,6 +5,7 @@ import { useWindowScroll } from "@mantine/hooks";
 
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { prefix } from "../utils/config";
 
 export default function Header({
   opened,
@@ -22,10 +23,10 @@ export default function Header({
   const burgerColor = opened || isScrolled || !isHome ? "#282828" : "white";
 
   const navLinks = [
-    { href: "/about", key: "About" },
-    { href: "#tools", key: "Tools" },
-    { href: "#papers", key: "Papers" },
-    { href: "#workshop", key: "Workshop" }
+    { href: `${prefix}/about`, key: "About" },
+    { href: `${prefix}/#tools`, key: "Tools" },
+    { href: `${prefix}/#papers`, key: "Papers" },
+    { href: `${prefix}/#workshop`, key: "Workshop" }
   ];
 
   return (
@@ -38,7 +39,7 @@ export default function Header({
       {/* Logo */}
       <Flex align="center" gap="md">
         <Link
-          href="/"
+          href={`${prefix}/`}
           style={{
             textDecoration: "none",
             opacity: isScrolled || !isHome ? 1 : 0,

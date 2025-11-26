@@ -9,6 +9,7 @@ import {
   Group,
   Box
 } from "@mantine/core";
+import { prefix } from "../utils/config";
 
 interface ContentCardProps {
   title: string;
@@ -35,8 +36,8 @@ export default function ContentCard({
 }: ContentCardProps) {
   const [opened, setOpened] = useState(false);
 
-  const fullImagePath = `/Cards/${imageUrl}`;
-  const fullPdfPath = pdfUrl ? `/pdf/${pdfUrl}` : null;
+  const fullImagePath = `${prefix}/Cards/${imageUrl}`;
+  const fullPdfPath = pdfUrl ? `${prefix}/pdf/${pdfUrl}` : null;
 
   return (
     <>

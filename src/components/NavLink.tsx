@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { UnstyledButton } from "@mantine/core";
 
 interface NavLinkProps {
@@ -15,7 +16,7 @@ export default function NavLink({
 }: NavLinkProps) {
   return (
     <UnstyledButton
-      component="a"
+      component={Link}
       href={href}
       style={{
         color,
