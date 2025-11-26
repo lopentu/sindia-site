@@ -40,7 +40,7 @@ export default function ContentCard({
 
   const router = useRouter();
   const fullImagePath = `${router.basePath}/Cards/${imageUrl}`;
-  const fullPdfPath = `${router.basePath}/pdf/${pdfUrl}`;
+  const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
 
   return (
     <>
