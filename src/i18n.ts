@@ -71,7 +71,6 @@ const resources = {
       About: "關於我們",
       Tools: "工具",
       Papers: "論文",
-      Workshop: "工作坊",
       "About SinDia": "關於 SinDia",
       "Read More": "了解更多",
       "@Graduate": "@ 國立臺灣大學語言學研究所",

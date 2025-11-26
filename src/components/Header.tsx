@@ -28,7 +28,7 @@ export default function Header({
     { href: `/about`, key: "About" },
     { href: `/#tools`, key: "Tools" },
     { href: `/#papers`, key: "Papers" },
-    { href: `/#workshop`, key: "Workshop" }
+    { href: `/#workshop`, key: "Workshops" }
   ];
 
   return (

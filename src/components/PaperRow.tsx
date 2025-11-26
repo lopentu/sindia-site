@@ -1,5 +1,6 @@
 import React from "react";
 import { Paper, Text, Group, Stack, Badge, Button, Box } from "@mantine/core";
+import { useRouter } from "next/router";
 
 interface PaperRowProps {
   title: string;
@@ -20,7 +21,8 @@ export default function PaperRow({
   buttonText,
   buttonLink
 }: PaperRowProps) {
-  const fullPdfPath = pdfUrl ? `/pdf/${pdfUrl}` : null;
+  const router = useRouter();
+  const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
   const link = buttonLink || fullPdfPath;
   const actionText = buttonText || "View PDF";
 
