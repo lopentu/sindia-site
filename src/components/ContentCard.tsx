@@ -12,11 +12,14 @@ import {
 
 interface ContentCardProps {
   title: string;
-  imageUrl: string;
+  imageUrl?: string;
   altText?: string;
   buttonText?: string;
   buttonLink?: string;
   pdfUrl?: string;
+  authors?: string;
+  year?: string;
+  publication?: string;
 }
 
 export default function ContentCard({
@@ -25,7 +28,10 @@ export default function ContentCard({
   altText = "",
   buttonText,
   buttonLink,
-  pdfUrl
+  pdfUrl,
+  authors,
+  year,
+  publication
 }: ContentCardProps) {
   const [opened, setOpened] = useState(false);
 
@@ -40,37 +46,51 @@ export default function ContentCard({
         radius="lg"
         className="group relative overflow-hidden bg-white/40 backdrop-blur-md border border-white/20 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-2 cursor-pointer h-full flex flex-col"
         onClick={() => setOpened(true)}>
-        <Card.Section className="overflow-hidden">
-          <Box className="relative h-48 overflow-hidden bg-slate-100">
-            {imageUrl ? (
-              <>
-                <Image
-                  src={fullImagePath}
-                  alt={altText || title}
-                  h="150"
-                  w="100%"
-                  fit="cover"
-                  className="transition-transform duration-700 ease-out group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </>
-            ) : (
-              <div className="h-full w-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center">
-                <Text c="dimmed" size="sm" fw={500}>
-                  No Preview
-                </Text>
-              </div>
-            )}
-          </Box>
-        </Card.Section>
+        {imageUrl && (
+          <Card.Section className="overflow-hidden">
+            <Box className="relative h-48 overflow-hidden bg-slate-100">
+              <Image
+                src={fullImagePath}
+                alt={altText || title}
+                h="150"
+                w="100%"
+                fit="cover"
+                className="transition-transform duration-700 ease-out group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </Box>
+          </Card.Section>
+        )}
 
         <Box p="lg" className="flex-1 flex flex-col">
           <Text
             fw={700}
             size="lg"
-            className="text-slate-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2 mb-auto">
+            className="text-slate-800 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2 mb-2">
             {title}
           </Text>
+
+          {(authors || year || publication) && (
+            <Stack gap="xs" mb="auto">
+              {authors && (
+                <Text size="sm" c="dimmed" lineClamp={1}>
+                  {authors}
+                </Text>
+              )}
+              <Group gap="xs">
+                {year && (
+                  <Text size="xs" className="bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">
+                    {year}
+                  </Text>
+                )}
+                {publication && (
+                  <Text size="xs" className="text-slate-500 italic" lineClamp={1}>
+                    {publication}
+                  </Text>
+                )}
+              </Group>
+            </Stack>
+          )}
 
           <Group
             mt="md"
@@ -124,6 +144,25 @@ export default function ContentCard({
           timingFunction: "cubic-bezier(0.16, 1, 0.3, 1)"
         }}>
         <Stack gap="xl">
+          {(authors || year || publication) && (
+            <Box>
+              {authors && (
+                <Text size="lg" className="text-slate-700 mb-2">
+                  <Text span fw={600}>Authors:</Text> {authors}
+                </Text>
+              )}
+              {publication && (
+                <Text size="md" className="text-slate-600 mb-1">
+                  <Text span fw={600}>Publication:</Text> {publication}
+                </Text>
+              )}
+              {year && (
+                <Text size="md" className="text-slate-600">
+                  <Text span fw={600}>Year:</Text> {year}
+                </Text>
+              )}
+            </Box>
+          )}
           {!fullPdfPath && imageUrl && (
             <Box className="rounded-xl overflow-hidden shadow-lg border border-slate-100 h-[400px]">
               <Image

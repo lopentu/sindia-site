@@ -14,7 +14,7 @@ import Footer from "@/components/Footer";
 // import I18nProvider from "@/components/I18nProvider";
 
 const menuItems = [
-  { label: "About", href: "#about" },
+  { label: "About", href: "/about" },
   { label: "Tools", href: "#tools" },
   { label: "Paper", href: "#papers" },
   { label: "Workshop", href: "#workshop" }
@@ -54,7 +54,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               backdropFilter: "blur(10px)",
               WebkitBackdropFilter: "blur(10px)",
               backgroundColor: "rgba(235, 235, 235, 0.5)",
-              color: isScrolled ? "#5e5e5e" : "#FFFFFF"
+              color: isScrolled ? "#282828" : "#FFFFFF"
             }
           }}>
           <AppShell.Header>
@@ -72,7 +72,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
             <Stack align="center" justify="space-between" gap="xl">
               {menuItems.map((item, index) => (
                 <Anchor key={index} href={item.href} onClick={() => toggle()}>
-                  <Text size="lg" fw={500} c="#5e5e5e">
+                  <Text size="lg" fw={500} c="#282828">
                     {item.label}
                   </Text>
                 </Anchor>

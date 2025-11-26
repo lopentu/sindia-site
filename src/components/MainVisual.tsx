@@ -5,7 +5,7 @@ export default function MainVisual() {
     <div
       style={{
         backgroundImage:
-          "linear-gradient(135deg, #B2F7EF, #7DE2D1, #6EC6CA, #A0EEC0)",
+          "linear-gradient(135deg, #192543ff, #284db1ff, #213575ff, #1d2d51ff)",
         backgroundSize: "600% 600%",
         minHeight: "100vh",
         boxSizing: "border-box",
@@ -40,7 +40,7 @@ export default function MainVisual() {
             m={"lg"}
             fw={500}
             ta="center">
-            Sindia Project
+            SinDia Project
           </Text>
         </Center>
 

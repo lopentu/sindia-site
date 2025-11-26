@@ -3,6 +3,9 @@ import NavLink from "./NavLink";
 
 import { useWindowScroll } from "@mantine/hooks";
 
+import { useRouter } from "next/router";
+import Link from "next/link";
+
 export default function Header({
   opened,
   toggle
@@ -11,13 +14,15 @@ export default function Header({
   toggle: () => void;
 }) {
   const [scroll] = useWindowScroll();
+  const router = useRouter();
   const isScrolled = scroll.y > 0;
+  const isHome = router.pathname === "/";
 
-  const navColor = isScrolled ? "#5e5e5e" : "white";
-  const burgerColor = opened || isScrolled ? "#5e5e5e" : "white";
+  const navColor = isScrolled || !isHome ? "#282828" : "white";
+  const burgerColor = opened || isScrolled || !isHome ? "#282828" : "white";
 
   const navLinks = [
-    { href: "#about", key: "About" },
+    { href: "/about", key: "About" },
     { href: "#tools", key: "Tools" },
     { href: "#papers", key: "Papers" },
     { href: "#workshop", key: "Workshop" }
@@ -32,18 +37,22 @@ export default function Header({
       mih={56}>
       {/* Logo */}
       <Flex align="center" gap="md">
-        <Text
-          size="25px"
-          fw={800}
-          variant="gradient"
-          gradient={{ from: "green", to: "blue", deg: 270 }}
+        <Link
+          href="/"
           style={{
-            opacity: isScrolled ? 1 : 0,
+            textDecoration: "none",
+            opacity: isScrolled || !isHome ? 1 : 0,
             transition: "opacity 0.3s ease",
-            pointerEvents: isScrolled ? "auto" : "none"
+            pointerEvents: isScrolled || !isHome ? "auto" : "none"
           }}>
-          Sindia
-        </Text>
+          <Text
+            size="25px"
+            fw={800}
+            variant="gradient"
+            gradient={{ from: "#3c5cb2ff", to: "#1e3a8a", deg: 270 }}>
+            SinDia
+          </Text>
+        </Link>
       </Flex>
 
       {/* NavLink (menu items) */}

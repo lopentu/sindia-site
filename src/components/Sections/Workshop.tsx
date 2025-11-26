@@ -1,7 +1,7 @@
-import React from 'react'
-import SindiaTitle from '../common/SindiaTitle'
-import { Container, SimpleGrid } from '@mantine/core'
-import ContentCard from '../ContentCard'
+import React from "react";
+import SindiaTitle from "../common/SindiaTitle";
+import { Container, SimpleGrid } from "@mantine/core";
+import ContentCard from "../ContentCard";
 
 const workshopData = [
   {
@@ -9,14 +9,21 @@ const workshopData = [
     imageUrl: "workshop.png",
     altText: "LangCog_2025",
     buttonText: "Workshop Website",
-    buttonLink: "https://lopentu.github.io/langcog2025/",
+    buttonLink: "https://lopentu.github.io/langcog2025/"
   },
+  {
+    title: "2nd Joint Workshop on Chinese Lexical Semantic Change",
+    imageUrl: "workshop2.png",
+    altText: "JCLSC_2024",
+    buttonText: "Workshop Website",
+    buttonLink: "https://lopentu.github.io/2023-ntue/"
+  }
 ];
 
 export default function Workshop() {
   return (
     <Container mb={"xl"}>
-      <SindiaTitle title="Workshop" />
+      <SindiaTitle title="Workshops" />
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
         {workshopData.map((workshop, index) => (
           <ContentCard

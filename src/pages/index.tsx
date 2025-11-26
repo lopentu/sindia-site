@@ -1,25 +1,25 @@
-import About from "@/components/About";
 import MainVisual from "@/components/MainVisual";
+import LandingAbout from "@/components/LandingAbout";
 import Papers from "@/components/Sections/Papers";
 import Tools from "@/components/Sections/Tools";
 import Workshop from "@/components/Sections/Workshop";
+import { Box } from "@mantine/core";
 
 export default function Home() {
   return (
     <>
       <MainVisual />
-      <div id="about">
-        <About />
-      </div>
-      <div id="tools">
+      <LandingAbout />
+
+      <Box id="tools" mb={60}>
         <Tools />
-      </div>
-      <div id="papers">
+      </Box>
+      <Box id="papers" mb={60}>
         <Papers />
-      </div>
-      <div id="workshop">
+      </Box>
+      <Box id="workshop" mb={60}>
         <Workshop />
-      </div>
+      </Box>
     </>
   );
 }
