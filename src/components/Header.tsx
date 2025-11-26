@@ -5,7 +5,6 @@ import { useWindowScroll } from "@mantine/hooks";
 
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { prefix } from "../utils/config";
 
 export default function Header({
   opened,
