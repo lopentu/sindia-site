@@ -39,8 +39,8 @@ export default function ContentCard({
   const { t } = useTranslation();
 
   const router = useRouter();
-const fullImagePath = `${router.basePath}/Cards/${imageUrl}`;
-const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
+  const fullImagePath = `${router.basePath}/Cards/${imageUrl}`;
+  const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
 
   return (
     <>
@@ -83,12 +83,17 @@ const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
               )}
               <Group gap="xs">
                 {year && (
-                  <Text size="xs" className="bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">
+                  <Text
+                    size="xs"
+                    className="bg-slate-100 px-2 py-1 rounded text-slate-600 font-medium">
                     {year}
                   </Text>
                 )}
                 {publication && (
-                  <Text size="xs" className="text-slate-500 italic" lineClamp={1}>
+                  <Text
+                    size="xs"
+                    className="text-slate-500 italic"
+                    lineClamp={1}>
                     {publication}
                   </Text>
                 )}
@@ -152,17 +157,26 @@ const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
             <Box>
               {authors && (
                 <Text size="lg" className="text-slate-700 mb-2">
-                  <Text span fw={600}>Authors:</Text> {authors}
+                  <Text span fw={600}>
+                    Authors:
+                  </Text>{" "}
+                  {authors}
                 </Text>
               )}
               {publication && (
                 <Text size="md" className="text-slate-600 mb-1">
-                  <Text span fw={600}>Publication:</Text> {publication}
+                  <Text span fw={600}>
+                    Publication:
+                  </Text>{" "}
+                  {publication}
                 </Text>
               )}
               {year && (
                 <Text size="md" className="text-slate-600">
-                  <Text span fw={600}>Year:</Text> {year}
+                  <Text span fw={600}>
+                    Year:
+                  </Text>{" "}
+                  {year}
                 </Text>
               )}
             </Box>
@@ -215,6 +229,7 @@ const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
                   rel="noopener noreferrer"
                   size="md"
                   radius="md"
+                  color="#3c5cb2ff"
                   className="bg-slate-900 hover:bg-slate-800 transition-colors">
                   {buttonText}
                 </Button>

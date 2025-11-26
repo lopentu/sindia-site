@@ -74,7 +74,7 @@ export default function PaperRow({
               target="_blank"
               rel="noopener noreferrer"
               variant="light"
-              color="blue"
+              color="#3c5cb2ff"
               size="sm"
               radius="md"
               className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
