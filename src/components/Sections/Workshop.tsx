@@ -1,6 +1,6 @@
 import React from 'react'
 import SindiaTitle from '../common/SindiaTitle'
-import { Container, Grid } from '@mantine/core'
+import { Container, SimpleGrid } from '@mantine/core'
 import ContentCard from '../ContentCard'
 
 const workshopData = [
@@ -17,19 +17,18 @@ export default function Workshop() {
   return (
     <Container mb={"xl"}>
       <SindiaTitle title="Workshop" />
-      <Grid gutter="md">
+      <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
         {workshopData.map((workshop, index) => (
-          <Grid.Col key={index} span={{ base: 12, md: 4, lg: 4 }}>
-            <ContentCard
-              title={workshop.title}
-              imageUrl={workshop.imageUrl}
-              altText={workshop.altText}
-              buttonText={workshop.buttonText}
-              buttonLink={workshop.buttonLink}
-            />
-          </Grid.Col>
+          <ContentCard
+            key={index}
+            title={workshop.title}
+            imageUrl={workshop.imageUrl}
+            altText={workshop.altText}
+            buttonText={workshop.buttonText}
+            buttonLink={workshop.buttonLink}
+          />
         ))}
-      </Grid>
+      </SimpleGrid>
     </Container>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import SindiaTitle from "../common/SindiaTitle";
-import { Container, Grid } from "@mantine/core";
+import { Container, SimpleGrid } from "@mantine/core";
 import ContentCard from "../ContentCard";
 
 const papersData = [
@@ -24,18 +24,17 @@ export default function Papers() {
   return (
     <Container>
       <SindiaTitle title="Papers" />
-      <Grid gutter="md">
+      <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
         {papersData.map((paper, index) => (
-          <Grid.Col key={index} span={{ base: 12, md: 4, lg: 4 }}>
-            <ContentCard
-              title={paper.title}
-              imageUrl={paper.imageUrl}
-              altText={paper.altText}
-              pdfUrl={paper.pdfUrl}
-            />
-          </Grid.Col>
+          <ContentCard
+            key={index}
+            title={paper.title}
+            imageUrl={paper.imageUrl}
+            altText={paper.altText}
+            pdfUrl={paper.pdfUrl}
+          />
         ))}
-      </Grid>
+      </SimpleGrid>
     </Container>
   );
 }
