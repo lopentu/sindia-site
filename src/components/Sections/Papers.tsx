@@ -19,7 +19,7 @@ const papersData = [
       "Exploring Dynamic Few-Shot Prompting for Word Sense Disambiguation in Historical Chinese",
     altText: "Micah Kitsunai, Deborah Watty, and Shu-Kai Hsieh",
     pdfUrl: "paper2.pdf",
-    authors: "Micah Kitsunai, Deborah Watty, and Shu-Kai Hsie",
+    authors: "Micah Kitsunai, Deborah Watty, and Shu-Kai Hsieh",
     year: "2025",
     buttonText: "Read Paper",
     publication: "言語処理学会 第31回年次大会 発表論文集（2025年3月）"
