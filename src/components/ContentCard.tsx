@@ -9,7 +9,6 @@ import {
   Group,
   Box
 } from "@mantine/core";
-import { prefix } from "../utils/config";
 import { useRouter } from "next/router";
 
 interface ContentCardProps {
