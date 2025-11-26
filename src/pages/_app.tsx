@@ -11,7 +11,7 @@ import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 import type { AppProps } from "next/app";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-// import I18nProvider from "@/components/I18nProvider";
+import Link from "next/link";
 
 const menuItems = [
   { label: "About", href: "/about" },
@@ -70,13 +70,17 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               backdropFilter: "blur(10px)"
             }}>
             <Stack align="center" justify="space-between" gap="xl">
-              {menuItems.map((item, index) => (
-                <Anchor key={index} href={item.href} onClick={() => toggle()}>
-                  <Text size="lg" fw={500} c="#282828">
-                    {item.label}
-                  </Text>
-                </Anchor>
-              ))}
+{menuItems.map((item, index) => (
+  <Anchor
+    key={index}
+    component={Link}
+    href={item.href}
+    onClick={() => toggle()}>
+    <Text size="lg" fw={500} c="#282828">
+      {item.label}
+    </Text>
+  </Anchor>
+))}
             </Stack>
           </AppShell.Aside>
 

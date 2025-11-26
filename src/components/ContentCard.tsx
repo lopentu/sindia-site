@@ -10,6 +10,7 @@ import {
   Box
 } from "@mantine/core";
 import { prefix } from "../utils/config";
+import { useRouter } from "next/router";
 
 interface ContentCardProps {
   title: string;
@@ -36,8 +37,9 @@ export default function ContentCard({
 }: ContentCardProps) {
   const [opened, setOpened] = useState(false);
 
-  const fullImagePath = `${prefix}/Cards/${imageUrl}`;
-  const fullPdfPath = pdfUrl ? `${prefix}/pdf/${pdfUrl}` : null;
+  const router = useRouter();
+const fullImagePath = `${router.basePath}/Cards/${imageUrl}`;
+const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
 
   return (
     <>
