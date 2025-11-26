@@ -5,7 +5,7 @@ export default function MainVisual() {
     <div
       style={{
         backgroundImage:
-          "linear-gradient(135deg, #B2F7EF, #7DE2D1, #6EC6CA, #A0EEC0)",
+          "linear-gradient(135deg, #192543ff, #284db1ff, #213575ff, #1d2d51ff)",
         backgroundSize: "600% 600%",
         minHeight: "100vh",
         boxSizing: "border-box",
@@ -13,9 +13,8 @@ export default function MainVisual() {
         justifyContent: "center",
         alignItems: "center",
         overflowX: "hidden",
-        animation: "gradient 4s ease-in-out infinite",
-      }}
-    >
+        animation: "gradient 4s ease-in-out infinite"
+      }}>
       <style>
         {`
         @keyframes gradient {
@@ -34,8 +33,14 @@ export default function MainVisual() {
 
       <Container>
         <Center>
-          <Text size="70px" c={"white"} m={"lg"} fw={500}>
-            Sindia Project
+          <Text
+            size="xl"
+            style={{ fontSize: "clamp(40px, 10vw, 70px)" }}
+            c={"white"}
+            m={"lg"}
+            fw={500}
+            ta="center">
+            SinDia Project
           </Text>
         </Center>
 
@@ -43,9 +48,9 @@ export default function MainVisual() {
           <Text
             size="20px"
             fw={500}
-            style={{ marginBottom: "20px", color: "white" }}
-          >
-            @ 台大語言學研究所
+            ta="center"
+            style={{ marginBottom: "20px", color: "white" }}>
+            @ National Taiwan University, Graduate Institute of Linguistics
           </Text>
         </Center>
 
