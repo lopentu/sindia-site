@@ -9,6 +9,7 @@ import {
   Box
 } from "@mantine/core";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const teamMembers = [
   {
@@ -21,13 +22,13 @@ const teamMembers = [
   {
     name: "Wei-Ling Chen",
     role: "",
-    description: "Ph.D. in Linguistics, National Taiwan University, Taiwan",
+    description: "Graduate Institute of Linguistics, National Taiwan University, Taiwan",
     image: "https://placehold.co/400x400?text=Member+2"
   },
   {
     name: "Lang-Ching Yeh",
     role: "",
-    description: "M.A. in Linguistics, National Taiwan University, Taiwan",
+    description: "Graduate Institute of Linguistics, National Taiwan University, Taiwan",
     image: "https://placehold.co/400x400?text=Member+5"
   },
   {
@@ -58,12 +59,14 @@ const teamMembers = [
 ];
 
 export default function Team() {
+  const { t } = useTranslation();
+
   return (
     <Container size="md" py="xl" id="team">
       <Stack gap="xl">
         <Box className="text-center mb-8">
           <Title order={2} className="text-slate-800" size={36} ta="center">
-            About Our Team
+            {t("About Our Team")}
           </Title>
         </Box>
 
@@ -73,18 +76,18 @@ export default function Team() {
               <Stack gap="xs">
                 <Group justify="space-between" align="baseline" wrap="nowrap">
                   <Text fw={600} size="md">
-                    {member.name}
+                    {t(member.name)}
                   </Text>
                   <Text
                     size="xs"
                     c="dimmed"
                     fw={500}
                     style={{ whiteSpace: "nowrap" }}>
-                    {member.role}
+                    {member.role ? t(member.role) : ""}
                   </Text>
                 </Group>
                 <Text size="sm" c="dimmed" lh={1.4}>
-                  {member.description}
+                  {t(member.description)}
                 </Text>
               </Stack>
             </Card>

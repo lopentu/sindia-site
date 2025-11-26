@@ -2,6 +2,7 @@ import React from "react";
 import SindiaTitle from "../common/SindiaTitle";
 import { Container, SimpleGrid } from "@mantine/core";
 import ContentCard from "../ContentCard";
+import { useTranslation } from "react-i18next";
 
 const workshopData = [
   {
@@ -21,9 +22,10 @@ const workshopData = [
 ];
 
 export default function Workshop() {
+  const { t } = useTranslation();
   return (
     <Container mb={"xl"}>
-      <SindiaTitle title="Workshops" />
+      <SindiaTitle title={t("Workshops")} />
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
         {workshopData.map((workshop, index) => (
           <ContentCard
@@ -31,7 +33,7 @@ export default function Workshop() {
             title={workshop.title}
             imageUrl={workshop.imageUrl}
             altText={workshop.altText}
-            buttonText={workshop.buttonText}
+            buttonText={t(workshop.buttonText)}
             buttonLink={workshop.buttonLink}
           />
         ))}

@@ -2,6 +2,7 @@ import React from "react";
 import SindiaTitle from "../common/SindiaTitle";
 import { Container, SimpleGrid } from "@mantine/core";
 import ContentCard from "../ContentCard";
+import { useTranslation } from "react-i18next";
 
 const toolsData = [
   {
@@ -12,7 +13,7 @@ const toolsData = [
     buttonLink: "http://140.112.80.82:8080/"
   },
   {
-    title: "同素異序",
+    title: "Compound Analysis",
     imageUrl: "compounds.png",
     altText: "AI text analyzer screenshot",
     buttonText: "Access",
@@ -28,9 +29,10 @@ const toolsData = [
 ];
 
 export default function Tools() {
+  const { t } = useTranslation();
   return (
     <Container>
-      <SindiaTitle title="Tools" />
+      <SindiaTitle title={t("Tools")} />
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="md">
         {toolsData.map((tool, index) => (
           <ContentCard
@@ -38,7 +40,7 @@ export default function Tools() {
             title={tool.title}
             imageUrl={tool.imageUrl}
             altText={tool.altText}
-            buttonText={tool.buttonText}
+            buttonText={t(tool.buttonText)}
             buttonLink={tool.buttonLink}
           />
         ))}

@@ -9,14 +9,17 @@ import {
 } from "@mantine/core";
 import Link from "next/link";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function LandingAbout() {
+  const { t } = useTranslation();
+
   return (
     <Box py={80} className="bg-slate-50">
       <Container size="md">
         <Stack gap="lg" align="center">
           <Title order={2} size="h1" className="text-slate-800" ta="center">
-            About SinDia
+            {t("About SinDia")}
           </Title>
 
           <Box className="max-w-3xl">
@@ -42,7 +45,7 @@ export default function LandingAbout() {
               variant="filled"
               color="#3c5cb2ff"
               radius="lg">
-              Read More
+              {t("Read More")}
             </Button>
           </Group>
         </Stack>

@@ -12,6 +12,9 @@ import type { AppProps } from "next/app";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import "../i18n";
+import { useTranslation } from "react-i18next";
+import LanguageToggle from "@/components/LanguageToggle";
 
 const menuItems = [
   { label: "About", href: "/about" },
@@ -23,6 +26,7 @@ const menuItems = [
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [opened, { toggle }] = useDisclosure();
   const [scroll] = useWindowScroll();
+  const { t } = useTranslation();
   const isScrolled = scroll.y > 0;
 
   return (
@@ -70,17 +74,18 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               backdropFilter: "blur(10px)"
             }}>
             <Stack align="center" justify="space-between" gap="xl">
-{menuItems.map((item, index) => (
-  <Anchor
-    key={index}
-    component={Link}
-    href={item.href}
-    onClick={() => toggle()}>
-    <Text size="lg" fw={500} c="#282828">
-      {item.label}
-    </Text>
-  </Anchor>
-))}
+              {menuItems.map((item, index) => (
+                <Anchor
+                  key={index}
+                  component={Link}
+                  href={item.href}
+                  onClick={() => toggle()}>
+                  <Text size="lg" fw={500} c="#282828">
+                    {t(item.label)}
+                  </Text>
+                </Anchor>
+              ))}
+              <LanguageToggle color="#282828" />
             </Stack>
           </AppShell.Aside>
 

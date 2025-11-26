@@ -10,6 +10,7 @@ import {
   Box
 } from "@mantine/core";
 import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
 interface ContentCardProps {
   title: string;
@@ -35,6 +36,7 @@ export default function ContentCard({
   publication
 }: ContentCardProps) {
   const [opened, setOpened] = useState(false);
+  const { t } = useTranslation();
 
   const router = useRouter();
 const fullImagePath = `${router.basePath}/Cards/${imageUrl}`;
@@ -99,7 +101,7 @@ const fullPdfPath = pdfUrl ? `${router.basePath}/pdf/${pdfUrl}` : null;
             gap="xs"
             className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
             <Text size="sm" c="dimmed" fw={500}>
-              View Details
+              {t("View Details")}
             </Text>
             <svg
               xmlns="http://www.w3.org/2000/svg"

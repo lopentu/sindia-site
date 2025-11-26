@@ -2,6 +2,7 @@ import React from "react";
 import SindiaTitle from "../common/SindiaTitle";
 import { Container, Stack, Divider } from "@mantine/core";
 import PaperRow from "../PaperRow";
+import { useTranslation } from "react-i18next";
 
 const papersData = [
   {
@@ -55,9 +56,10 @@ const papersData = [
 ];
 
 export default function Papers() {
+  const { t } = useTranslation();
   return (
     <Container>
-      <SindiaTitle title="Papers & Talks" />
+      <SindiaTitle title={t("Paper & Talk")} />
       <Stack gap="xl" align="stretch">
         {papersData.map((paper, index) => (
           <React.Fragment key={index}>
@@ -67,7 +69,7 @@ export default function Papers() {
               year={paper.year}
               authors={paper.authors}
               publication={paper.publication}
-              buttonText={paper.buttonText}
+              buttonText={t(paper.buttonText || "")}
               buttonLink={paper.buttonLink}
             />
             {index < papersData.length - 1 && <Divider color="gray.2" />}

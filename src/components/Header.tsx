@@ -1,10 +1,12 @@
 import { Flex, Burger, Text } from "@mantine/core";
 import NavLink from "./NavLink";
+import LanguageToggle from "./LanguageToggle";
 
 import { useWindowScroll } from "@mantine/hooks";
 
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useTranslation } from "react-i18next";
 
 export default function Header({
   opened,
@@ -15,6 +17,7 @@ export default function Header({
 }) {
   const [scroll] = useWindowScroll();
   const router = useRouter();
+  const { t } = useTranslation();
   const isScrolled = scroll.y > 0;
   const isHome = router.pathname === "/";
 
@@ -61,10 +64,11 @@ export default function Header({
           <NavLink
             key={item.key}
             href={item.href}
-            label={item.key}
+            label={t(item.key)}
             color={navColor}
           />
         ))}
+        <LanguageToggle color={navColor} />
       </Flex>
 
       {/* Burger (mobile menu) */}

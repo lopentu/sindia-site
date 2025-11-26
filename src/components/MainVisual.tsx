@@ -1,6 +1,8 @@
 import { Container, Text, Center } from "@mantine/core";
+import { useTranslation } from "react-i18next";
 
 export default function MainVisual() {
+  const { t } = useTranslation();
   return (
     <div
       style={{
@@ -50,7 +52,7 @@ export default function MainVisual() {
             fw={500}
             ta="center"
             style={{ marginBottom: "20px", color: "white" }}>
-            @ National Taiwan University, Graduate Institute of Linguistics
+            {t("@Graduate")}
           </Text>
         </Center>
 
