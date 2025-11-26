@@ -28,12 +28,7 @@ export default function LandingAbout() {
               lh={1.6}
               className="text-slate-700 mb-6"
               ta="justify">
-              The vision of Sinographia Diachronica (SinDia) is to awaken the
-              millennia-deep intelligence in the age of AI. We aim to construct
-              a comprehensive semantic and cultural map where classical
-              writings, Buddhist translations, vernacular texts, modern online
-              discourse, inscriptions, manuscripts, and multimodal artifacts
-              intersect within a single computational universe.
+              {t("LandingAbout")}
             </Text>
           </Box>
 

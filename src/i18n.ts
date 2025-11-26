@@ -24,7 +24,8 @@ const resources = {
       "Post-doc researcher, Universität Tübingen, Germany":
         "Post-doc researcher, Universität Tübingen, Germany",
       "Yongfu Liao": "Yongfu Liao",
-      "Graduate Institute of Linguistics, National Taiwan University, Taiwan": "Graduate Institute of Linguistics, National Taiwan University, Taiwan",
+      "Graduate Institute of Linguistics, National Taiwan University, Taiwan":
+        "Graduate Institute of Linguistics, National Taiwan University, Taiwan",
       About: "About",
       Tools: "Tools",
       Papers: "Papers",
@@ -34,12 +35,14 @@ const resources = {
       "@Graduate":
         "@ National Taiwan University, Graduate Institute of Linguistics",
       "Paper & Talk": "Papers & Talks",
-      "Workshops": "Workshops",
+      Workshops: "Workshops",
       "Read Paper": "Read Paper",
       "View Slides": "View Slides",
       Access: "Access",
       "Workshop Website": "Workshop Website",
-      "View Details": "View Details"
+      "View Details": "View Details",
+      LandingAbout:
+        "The vision of Sinographia Diachronica (SinDia) is to awaken the millennia-deep intelligence in the age of AI. We aim to construct a comprehensive semantic and cultural map where classical writings, Buddhist translations, vernacular texts, modern online discourse, inscriptions, manuscripts, and multimodal artifacts intersect within a single computational universe."
     }
   },
   zh: {
@@ -73,12 +76,14 @@ const resources = {
       "Read More": "了解更多",
       "@Graduate": "@ 國立臺灣大學語言學研究所",
       "Paper & Talk": "研究成果與演講",
-      "Workshops": "工作坊",
+      Workshops: "工作坊",
       "Read Paper": "閱讀論文",
       "View Slides": "查看投影片",
       Access: "打開網站",
       "Workshop Website": "工作坊網站",
-      "View Details": "查看詳情"
+      "View Details": "查看詳情",
+      LandingAbout:
+        "Sinographia Diachronica（SinDia） 的願景，是讓這條跨越千年的智慧脈絡在 AI 時代重新甦醒。我們期待建構一個能看見 語言變遷、文字演化、文化記憶、認知生長 的大地圖——讓古典文獻、佛教翻譯、白話寫作、現代網路語言、乃至碑刻與影像，都能在同一套語義宇宙中互相呼應。"
     }
   }
 };
