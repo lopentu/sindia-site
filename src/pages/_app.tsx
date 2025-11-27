@@ -18,9 +18,9 @@ import LanguageToggle from "@/components/LanguageToggle";
 
 const menuItems = [
   { label: "About", href: "/about" },
-  { label: "Tools", href: "#tools" },
-  { label: "Papers", href: "#papers" },
-  { label: "Workshops", href: "#workshop" }
+  { label: "Tools", href: "/#tools" },
+  { label: "Papers", href: "/#papers" },
+  { label: "Workshops", href: "/#workshop" }
 ];
 
 export default function MyApp({ Component, pageProps }: AppProps) {
