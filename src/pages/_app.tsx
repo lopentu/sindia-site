@@ -9,6 +9,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 import type { AppProps } from "next/app";
+import Head from "next/head";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
@@ -31,6 +32,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
+      <Head>
+        <title>Sindia</title>
+        <link rel="icon" href="/logo_lope.jpg" />
+      </Head>
       <ColorSchemeScript />
 
       <MantineProvider>
