@@ -9,11 +9,15 @@ export default function LanguageToggle({ color = "#282828" }: LanguageToggleProp
   const { i18n } = useTranslation();
   const currentLang = i18n.language?.startsWith("zh") ? "zh" : "en";
   const inverseColor = color === "white" ? "#282828" : "white";
+  const languageStorageKey = "sindia-language";
 
   return (
     <SegmentedControl
       value={currentLang}
-      onChange={(value) => i18n.changeLanguage(value)}
+      onChange={(value) => {
+        window.localStorage.setItem(languageStorageKey, value);
+        void i18n.changeLanguage(value);
+      }}
       data={[
         {
           label: (

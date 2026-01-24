@@ -9,6 +9,7 @@ import {
 } from "@mantine/core";
 import { useDisclosure, useWindowScroll } from "@mantine/hooks";
 import type { AppProps } from "next/app";
+import { useEffect } from "react";
 import Head from "next/head";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -24,11 +25,26 @@ const menuItems = [
   { label: "Workshops", href: "/#workshop" }
 ];
 
+const languageStorageKey = "sindia-language";
+
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [opened, { toggle }] = useDisclosure();
   const [scroll] = useWindowScroll();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isScrolled = scroll.y > 0;
+
+  useEffect(() => {
+    const storedLanguage = window.localStorage.getItem(languageStorageKey);
+    if (storedLanguage) {
+      void i18n.changeLanguage(storedLanguage);
+      return;
+    }
+
+    const browserLanguage = navigator.language.toLowerCase();
+    if (browserLanguage.startsWith("zh")) {
+      void i18n.changeLanguage("zh");
+    }
+  }, [i18n]);
 
   return (
     <>
