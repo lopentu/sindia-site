@@ -10,7 +10,7 @@ const toolsData = [
     imageUrl: "corpus.png",
     altText: "Corpus visualization",
     buttonText: "Access",
-    buttonLink: "http://140.112.80.82:8080/"
+    buttonLink: "https://lopen.linguistics.ntu.edu.tw/hcc"
   },
   {
     title: "Compound Analysis",
