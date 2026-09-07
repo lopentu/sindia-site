@@ -26,6 +26,7 @@ export default function Header({
 
   const navLinks = [
     { href: `/about`, key: "About" },
+    { href: `/buddhist/index.html`, key: "Buddhist Semantics" },
     { href: `/#tools`, key: "Tools" },
     { href: `/#papers`, key: "Papers" },
     { href: `/#workshop`, key: "Workshops" }

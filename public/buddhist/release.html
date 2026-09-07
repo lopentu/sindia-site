@@ -1,0 +1,37 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CiWN｜Release notes</title><style>*{box-sizing:border-box}body{margin:0;color:#17263e;background:#fff;font:18px/1.85 system-ui,-apple-system,"Noto Sans CJK TC",sans-serif}header,main,footer{max-width:1040px;margin:auto;padding:24px}header{border-bottom:1px solid #dfe4ea}a{color:#244fb2;text-underline-offset:3px}h1{font-size:40px;line-height:1.35;margin:35px 0}h2{font-size:28px;margin-top:55px;border-top:1px solid #dfe4ea;padding-top:28px}h3{font-size:23px;line-height:1.5}table{width:100%;border-collapse:collapse;font-size:16px}td,th{padding:13px;text-align:left;border-bottom:1px solid #dfe4ea;vertical-align:top}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f3f6fa;padding:20px;font-size:14px}blockquote{border-left:3px solid #244fb2;margin-left:0;padding-left:24px}footer{color:#64748b;font-size:14px}@media(max-width:640px){body{font-size:16px}h1{font-size:30px}table{display:block;overflow-x:auto}}@media print{header{display:none}h2,h3{break-after:avoid}p{orphans:3;widows:3}a{color:inherit}}</style></head><body><header><a href="index.html">← CiWN / SinDia</a> · <a href="proposal.html">研究計畫</a> · <a href="pnc-talk.html">PNC 講稿</a> · <a href="release.html">Release notes</a></header><main><h1>PNC 2026 release: CiWN evidence prototype</h1>
+<p>The prepared demonstration targets <a href="https://lopentu.github.io/sindia-site/buddhist/">SinDia Buddhist Semantics</a>.</p>
+<h2>Scope and measured outputs</h2>
+<ul>
+<li>16 machine-prepared claim proposals; 6 evidence windows; 4 sources (3 Chinese works and 1 Sanskrit transcription).</li>
+<li>27 native CWN senses from exact queries 心 / 意 / 識 in the pinned v.2022.08.01 image, including homographs.</li>
+<li>All 16 proposals pass deterministic local evidence checks. <strong>0 expert-adjudicated claims.</strong> This is not a model benchmark or a semantic accuracy score.</li>
+<li>T0251 literal 心 counts in body-role rows: 9 in the two prefaces, 1 in the sūtra body. Headings, bylines and notes are excluded. This is a provenance audit, not a new textual-historical discovery.</li>
+<li>245 N-Quads statements export claim, evidence, source, mapping-proposal and conset objects. The existing w3id ontology namespace is reused as a vocabulary identifier; its external resolution and a live TrustGraph load are not asserted.</li>
+</ul>
+<p>Several claims share a single evidence window. The number of claims is not the number of independent observations. All historical interpretations, conset memberships and native-sense mappings remain proposals.</p>
+<h2>Reproduce with the Python standard library</h2>
+<p>From the repository root:</p>
+<pre><code class="language-bash">python -m unittest discover -s tests -v
+python src/verify_claims.py data/pnc2026/claims.json --out /tmp/ciwn-verification.json
+python src/export_pnc_rdf.py data/pnc2026/claims.json /tmp/ciwn-claims.nq
+</code></pre>
+<p>To rebuild from the pinned Chinese XML and the Sanskrit transcription:</p>
+<pre><code class="language-bash">python src/build_pnc_demo.py
+</code></pre>
+<p>Network access is needed once. For an existing cache, add <code>--offline --cache /absolute/path/to/cache</code>. The cached raw Chinese files must match the release hashes before the build uses them; Sanskrit also uses a fixed release hash. A changed source must be reviewed as a new release, not silently reused.</p>
+<p>The committed <code>cwn-native.json</code> is the small native-sense excerpt. Re-extraction from the original official data image is possible with:</p>
+<pre><code class="language-bash">python src/cwn_snapshot.py /path/to/cwn-2022.08.01.pyobj /path/to/manifest.json data/pnc2026/cwn-native.json
+</code></pre>
+<p>The image location is recorded by the public manifest. This reader restricts pickle globals to primitive container classes. It does not execute CwnGraph package code or relabel the image as a newer release.</p>
+<h2>What changed in the importer</h2>
+<p>The earlier root traversal could collect header/back matter, descendant note text, and child tails out of order. The importer now traverses the TEI body recursively, preserves text order, skips editorial notes and secondary readings, selects the Taishō line stream, and keeps textual role and section path. Work-level translator and date fields are not copied into every section.</p>
+<p>The extractor is a conservative reading-text importer, not a full critical-edition engine. Gaiji resolution uses declared Unicode mappings where available and otherwise retains an explicit marker. Substantive source interpretation remains a separate layer.</p>
+<h2>Verification and retry boundaries</h2>
+<p>The Python verifier checks schema fields, supported relation types, evidence references, quote hashes, line windows, section boundaries, contextual source consistency, and required literal forms. It cannot establish semantic entailment or the absence of counterevidence. Passed claims enter an expert review queue.</p>
+<p>The browser runs a documented subset of those checks locally. Its missing-evidence test deliberately changes one reference; the user can restore it and rerun. This demonstrates the intended gate and repair behavior. No LLM call, autonomous repair, live counterevidence search, or multi-agent comparison runs in the browser.</p>
+<h2>Relationship to the earlier prototype</h2>
+<p>The files under <code>data/demo/</code> and their temporal CSV metrics remain <strong>synthetic</strong> demonstration data. They are not used by the new public evidence interface. The earlier <code>examples/claim_real_t0251_vijnana_shi.nq</code> is preserved as a historical artifact and contains an uncalibrated 0.98 score; use the new PNC export for the current score-free representation. Native IDs are preserved and proposed mappings are not promoted to accepted relations.</p>
+<h2>Release ownership</h2>
+<p><code>tbsg-cwn</code> owns data and research code. <code>sindia-site/public/buddhist</code> contains a static release snapshot. To refresh the website, copy <code>data/pnc2026/</code> to its <code>data/</code>, regenerate <code>data.js</code> from the same <code>claims.json</code>, and update the proposal and talk HTML from the corresponding Markdown files. Do not hand-edit website data independently.</p>
+<p>See <a href="proposal.html">the bilingual research proposal</a>, <a href="pnc-talk.html">the PNC talk</a>, and <a href="data/SOURCE_RIGHTS.md">source rights</a>.</p>
+</main><footer>CiWN · SinDia · 2026-09-07</footer></body></html>

@@ -1,5 +1,6 @@
 const en = {
   translation: {
+    "Buddhist Semantics": "Buddhist Semantics",
     "About Our Team": "About Our Team",
     "Prof. Dr. Shu-Kai Hsieh": "Prof. Dr. Shu-Kai Hsieh",
     "PROJECT LEADER": "PROJECT LEADER",

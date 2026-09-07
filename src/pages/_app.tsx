@@ -20,6 +20,7 @@ import LanguageToggle from "@/components/LanguageToggle";
 
 const menuItems = [
   { label: "About", href: "/about" },
+  { label: "Buddhist Semantics", href: "/buddhist/index.html" },
   { label: "Tools", href: "/#tools" },
   { label: "Papers", href: "/#papers" },
   { label: "Workshops", href: "/#workshop" }

@@ -1,5 +1,6 @@
 const zh = {
   translation: {
+    "Buddhist Semantics": "佛教語意",
     "About Our Team": "我們的團隊",
     "Prof. Dr. Shu-Kai Hsieh": "謝舒凱 教授",
     "PROJECT LEADER": "計畫主持人",
